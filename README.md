@@ -31,3 +31,14 @@ Transfer the generated shellcode and loader to Windows machine and execute as be
 # e.g.
 .\ldr.exe 12345 .\shellcode.bin
 ```
+
+## Added Self Inject Mode Support
+
+By given the target PID==0
+
+<img width="432" height="124" alt="image" src="https://github.com/user-attachments/assets/ae8b87eb-fd08-4a32-8cf2-9e206d2651cf" />
+
+
+
+
+
